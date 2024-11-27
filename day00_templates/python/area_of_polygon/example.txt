@@ -1,0 +1,63 @@
+// from AoC 2023, Day 18
+
+R 6 (#70c710)
+D 5 (#0dc571)
+L 2 (#5713f0)
+D 2 (#d2c081)
+R 2 (#59c680)
+D 2 (#411b91)
+L 5 (#8ceee2)
+U 2 (#caa173)
+L 1 (#1b58a2)
+U 2 (#caa171)
+R 2 (#7807d2)
+U 3 (#a77fa3)
+L 2 (#015232)
+U 2 (#7a21e3)
+
+
+  0123456
+0 #######
+1 #.....#
+2 ###...#
+3 ..#...#
+4 ..#...#
+5 ###.###
+6 #...#..
+7 ##..###
+8 .#....#
+9 .######
+
+Question: if we fill the polygon with '#' signs,
+          how many hashes will we have?
+
+This is the area of the polygon, but there is a catch!
+
+Let's see this example:
+
+  012345
+0 x....x
+1 ......
+2 ......
+3 ......
+4 ......
+5 x....x
+
+Here we have 4 points, making a square.
+The 4 points are: (0, 0), (0, 5), (5, 5), (5, 0).
+
+Running the shoelace algorithm, we get that the area is 25.
+5 - 0 = 5, and 5 x 5 is 25.
+However, if we fill the rectangle with 'x' signs, we'll have
+6 x 6 = 36 crosses. If the question is about the number
+of crosses, we need to do some modification:
+
+area: 5 x 5 = 25
+perimeter (calculating the differences at each side): 5 x 4 = 20
+perimeter / 2 = 10
+result: 25 + 10 + 1 = 36
+
+We need to add 1 at the end.
+
+The 4 points: (0, 0), (0, 5), (5, 5), (5, 0).
+Taking the differences of neighboring points, we get 5 x 4 = 20 for the perimeter.
