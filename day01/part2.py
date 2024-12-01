@@ -1,5 +1,21 @@
 #!/usr/bin/env python3
 
+"""
+3   4
+4   3
+2   5
+1   3
+3   9
+3   3
+
+d:
+    4: 1
+    3: 3
+    5: 1
+    9: 1
+
+"""
+
 import helper
 
 
@@ -16,12 +32,9 @@ def main() -> None:
         second.append(int(parts[1]))
     #
 
-    first.sort()
-    second.sort()
-
     result = 0
-    for a, b in zip(first, second):
-        result += abs(a - b)
+    for n in first:
+        result += n * second.count(n)
     #
     print(result)
 
