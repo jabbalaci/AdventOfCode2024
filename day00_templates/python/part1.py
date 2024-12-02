@@ -3,9 +3,9 @@
 import helper
 
 
-def main():
-    lines = helper.read_lines("example.txt")
-    # lines = helper.read_lines("input.txt")
+def main() -> None:
+    lines: list[str] = helper.read_lines("example.txt")
+    # lines: list[str] = helper.read_lines("input.txt")
 
     for line in lines:
         print(line)
