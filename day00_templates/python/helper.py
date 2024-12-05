@@ -103,3 +103,12 @@ def merge_intervals(intervals: list[list[int]]) -> list[list[int]]:
         #
     #
     return stack
+
+
+"""
+see https://docs.python.org/3/library/itertools.html
+
+Examples                            Results
+
+combinations('ABCD', 2)             AB AC AD BC BD CD
+"""
