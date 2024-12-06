@@ -5,7 +5,7 @@ p1:
 	./part1.py
 
 p2:
-	./part2.py
+	pypy3 ./part2.py
 
 mypy:
 	mypy --config-file mypy.ini .
