@@ -2,8 +2,6 @@ import math
 from itertools import chain, combinations, zip_longest
 from typing import NamedTuple
 
-char = str
-
 
 class Point(NamedTuple):
     x: int
@@ -105,15 +103,6 @@ def merge_intervals(intervals: list[list[int]]) -> list[list[int]]:
         #
     #
     return stack
-
-
-def get_cell_value(matrix, i: int, j: int, default=".") -> char:
-    if (i < 0) or (j < 0):
-        return default
-    try:
-        return matrix[i][j]
-    except IndexError:
-        return default
 
 
 """
