@@ -17,6 +17,8 @@ def solve_v1(numbers: list[int], total: int) -> bool:
             else:  # *
                 result *= numbers[i + 1]
             #
+            if result > total:
+                break
         #
         if result == total:
             return True
@@ -39,6 +41,8 @@ def solve_v2(numbers: list[int], total: int) -> bool:
             else:  # | (which is || in the exercise)
                 result = int(str(result) + str(numbers[i + 1]))
             #
+            if result > total:
+                break
         #
         if result == total:
             return True
