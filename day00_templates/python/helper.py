@@ -123,6 +123,7 @@ Examples                            Results
 
 combinations('ABCD', 2)             AB AC AD BC BD CD
 
+product("+*", repeat=1)             ('+',), ('*',)
 product("+*", repeat=2)             ('+', '+'), ('+', '*'), ('*', '+'), ('*', '*')
 product("+*", repeat=3)             +++, ++*, +*+, +**, *++, *+*, **+, ***
 """
