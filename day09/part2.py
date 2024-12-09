@@ -1,14 +1,15 @@
 #!/usr/bin/env python3
 
 """
-It's wrong at the moment!
-It has some bug.
+Here I had to use some help.
+Link: https://old.reddit.com/r/adventofcode/comments/1ha5we4/2024_day_9_part_2_good_for_the_example_wrong_for/
+Thanks /r/adventofcode and /u/tyomka896 !
 """
 
 import helper
 
-DEBUG = True
-# DEBUG = False
+# DEBUG = True
+DEBUG = False
 
 # ----------------------------------------------------------------------------
 
@@ -61,17 +62,21 @@ class HardDrive:
                 print("# current ID:", current_id)
             cnt += 1
             current_idx, current_fr = self.find_by_id(current_id)
-            before_fr = self.layout[current_idx - 1]
             first_idx, first_fr = self.get_first_fr_with_enough_free_space(current_fr.used)
             #
             if (first_idx != -1) and (first_idx < current_idx):
                 new = Fragment(
                     _id=current_fr._id, used=current_fr.used, free=first_fr.free - current_fr.used
                 )
-                before_fr.free += current_fr.used + current_fr.free
-                del self.layout[current_idx]
-                self.layout.insert(first_idx + 1, new)
                 first_fr.free = 0
+                self.layout.insert(first_idx + 1, new)
+
+                del self.layout[current_idx + 1]  # +1 because of the previous insertion
+
+                before_fr = self.layout[
+                    current_idx
+                ]  # the fragment just before the previously deleted fragment
+                before_fr.free += current_fr.used + current_fr.free
             #
             if DEBUG:
                 self.debug()
@@ -111,8 +116,9 @@ class HardDrive:
 
 
 def main() -> None:
-    content: str = helper.read("example2.txt", trim=True)
-    # content: str = helper.read("input.txt", trim=True)
+    # content: str = helper.read("example2.txt", trim=True)  # result: 2858
+    # content: str = helper.read("example3.txt", trim=True)  # result: 169
+    content: str = helper.read("input.txt", trim=True)
 
     hd = HardDrive(content)
 
