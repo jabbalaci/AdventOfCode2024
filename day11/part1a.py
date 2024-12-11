@@ -1,5 +1,10 @@
 #!/usr/bin/env python3
 
+"""
+Naive approach. Works well for Part 1.
+Eats up too much RAM for Part 2.
+"""
+
 import helper
 
 # ----------------------------------------------------------------------------
