@@ -1,0 +1,8 @@
+After solving Part 2, I visited Reddit
+and found the following tip:
+
+"A region has the same amount of sides as corners."
+
+from here: https://old.reddit.com/r/adventofcode/comments/1hcf16m/2024_day_12_everyone_must_be_hating_today_so_here/
+
+Well, my solution is more complicated.
