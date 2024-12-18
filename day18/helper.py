@@ -5,11 +5,6 @@ from typing import NamedTuple
 char = str
 
 
-class GridPoint(NamedTuple):
-    row: int
-    col: int
-
-
 class Point(NamedTuple):
     x: int
     y: int
@@ -123,23 +118,6 @@ def get_cell_value(matrix, i: int, j: int, default=".") -> char:
         return matrix[i][j]  # type: ignore
     except IndexError:
         return default  # type: ignore
-
-
-def get_all_four_neighbors(p: GridPoint) -> list[GridPoint]:
-    """
-    Returns all four neighboring points (even if they're outside of the grid).
-
-    The four points are returned in this order: up, right, down, left.
-    """
-    result: list[GridPoint] = []
-    i, j = p.row, p.col
-
-    #            up          right        down       left
-    positions = [(i - 1, j), (i, j + 1), (i + 1, j), (i, j - 1)]
-    for i, j in positions:
-        result.append(GridPoint(row=i, col=j))
-    #
-    return result
 
 
 """

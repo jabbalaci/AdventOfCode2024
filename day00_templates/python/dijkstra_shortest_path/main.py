@@ -3,7 +3,6 @@
 import pprint
 import sys
 from dataclasses import dataclass
-from typing import NamedTuple
 
 import helper
 
@@ -15,6 +14,9 @@ class Entry:
     node: char
     dist_from_start: int
     prev_node: char
+
+
+# ----------------------------------------------------------------------------
 
 
 class Graph:
@@ -47,6 +49,9 @@ class Graph:
 
     def __str__(self) -> str:
         return pprint.pformat(self.d)
+
+
+# ----------------------------------------------------------------------------
 
 
 class Dijkstra:
@@ -97,6 +102,9 @@ class Dijkstra:
         print("# unvisited:", self.unvisited)
         print("---")
         input("Press ENTER to continue...")
+
+
+# ----------------------------------------------------------------------------
 
 
 def main():
