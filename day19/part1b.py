@@ -35,7 +35,7 @@ class Towel:
         self.valid_words: set[str] = set()
         self.invalid_words: set[str] = set()
 
-    def read_input(self, fname: str):
+    def read_input(self, fname: str) -> None:
         content: str = helper.read(fname)
         part1, part2 = content.split("\n\n")
         self.patterns = part1.replace(" ", "").split(",")

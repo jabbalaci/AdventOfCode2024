@@ -33,13 +33,13 @@ class Towel:
         self.nodes: dict[str, Node] = {}
         self.tree: dict[str, list[Node]]
 
-    def read_input(self, fname: str):
+    def read_input(self, fname: str) -> None:
         content: str = helper.read(fname)
         part1, part2 = content.split("\n\n")
         self.patterns = part1.replace(" ", "").split(",")
         self.words = part2.split()
 
-    @lru_cache
+    @lru_cache  # <- here is the trick
     def extend(self, word: str) -> bool:
         if len(word) == 0:
             return True

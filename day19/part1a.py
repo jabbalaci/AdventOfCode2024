@@ -10,13 +10,14 @@ If we need to time out, then that word was invalid.
 Not an elegant solution, I admit, but it worked here :)
 
 TODO: find a solution without using timeout
+Update: 1b and 1c are fast and they're without timeout
 """
 
 from stopit import ThreadingTimeout
 
 import helper
 
-TIMEOUT = 0.0001
+TIMEOUT = 0.0001  # sec.
 
 # ----------------------------------------------------------------------------
 
