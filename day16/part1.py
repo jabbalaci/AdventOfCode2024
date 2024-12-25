@@ -13,6 +13,7 @@ from __future__ import annotations
 import pprint
 import sys
 from enum import Enum
+from functools import lru_cache
 from typing import NamedTuple
 
 import helper
@@ -83,15 +84,6 @@ class Maze:
             #
         #
 
-    def get_cell_value(self, row: int, col: int, default="#") -> char:
-        i, j = row, col
-        if (i < 0) or (j < 0):
-            return default  # type: ignore
-        try:
-            return self.matrix[i][j]
-        except IndexError:
-            return default  # type: ignore
-
     def get_all_points(self) -> list[Point]:
         """Returns the available points, where we can move."""
         result: list[Point] = []
@@ -149,6 +141,7 @@ class Dijkstra:
         self.unvisited: set[Entry] = set()
         self.init_dijkstra()
 
+    @lru_cache
     def get_entry_by_point(self, p: Point) -> Entry | None:
         for e in self.unvisited:
             if e.point == p:
@@ -189,6 +182,7 @@ class Dijkstra:
         #
         return result
 
+    @lru_cache
     def get_lowest_number_of_turns(self, dir1: Dir, dir2: Dir) -> int:
         if dir1 == dir2:
             return 0
