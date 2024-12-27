@@ -8,4 +8,4 @@ p2:
 	./part2.py
 
 mypy:
-	mypy --config-file mypy.ini .
+	mypy --exclude old/ --config-file mypy.ini .
