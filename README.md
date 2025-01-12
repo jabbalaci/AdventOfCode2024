@@ -2,7 +2,9 @@
 
 My solutions for [Advent of Code 2024](https://adventofcode.com/2024).
 
-Targeted language: Python.
+Targeted language: **Python**.
+
+Just for practicing, I also have some solutions in Free Pascal.
 
 ## Links
 
